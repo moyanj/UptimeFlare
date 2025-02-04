@@ -53,7 +53,7 @@ const workerConfig = {
       name: 'PackDB API',
       // `method` should be a valid HTTP Method
       method: 'GET',
-      expectedCodes: [404]
+      expectedCodes: [404],
       // `target` is a valid URL
       target: 'https://packdbapi.moyanjdc.top',
     },
