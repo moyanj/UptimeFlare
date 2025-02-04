@@ -93,7 +93,18 @@ const workerConfig = {
     ) => {
       // This callback will be called when there's a status change for any monitor
       // Write any Typescript code here
-
+      if (!isUp) {
+        fetch('https://ntfy.moyanjdc.top', {
+          method: 'POST',
+          body: JSON.stringify({
+              "topic": "status",
+              "message": `${reason}`,
+              "title": `${monitor}不可用！！！`,
+              "tags": ["warning","cd"],
+              "priority": 4,
+          })
+        })
+      }
       // This will not follow the grace period settings and will be called immediately when the status changes
       // You need to handle the grace period manually if you want to implement it
     },
