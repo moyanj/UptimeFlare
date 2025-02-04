@@ -36,7 +36,7 @@ export default function OverallStatus({
     statusString = '所有系统均可使用'
     icon = <IconCircleCheck style={{ width: 64, height: 64, color: '#059669' }} />
   } else {
-    statusString = `某些系统无法运行 (中${state.overallUp + state.overallDown}有${state.overallDown}个)`
+    statusString = `某些系统无法运行 (${state.overallUp + state.overallDown}个中有${state.overallDown}个)`
   }
 
   const [openTime] = useState(Math.round(Date.now() / 1000))
