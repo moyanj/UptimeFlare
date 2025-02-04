@@ -10,7 +10,7 @@ const pageConfig = {
 
 const workerConfig = {
   // Write KV at most every 3 minutes unless the status changed
-  kvWriteCooldownMinutes: 10,
+  kvWriteCooldownMinutes: 5,
   // Enable HTTP Basic auth for status page & API by uncommenting the line below, format `<USERNAME>:<PASSWORD>`
   // passwordProtection: 'username:password',
   // Define all your monitors here
@@ -98,10 +98,18 @@ const workerConfig = {
           method: 'POST',
           body: JSON.stringify({
               "topic": "status",
-              "message": `${reason}`,
-              "title": `${monitor}不可用！！！`,
-              "tags": ["warning","cd"],
+              "message": `原因：${reason}`,
+              "title": `${monitor.name}不可用！！！`,
               "priority": 4,
+          })
+        })
+      } else {
+        fetch('https://ntfy.moyanjdc.top', {
+          method: 'POST',
+          body: JSON.stringify({
+              "topic": "status",
+              "message": `${monitor.name}已可用`,
+              "priority": 3,
           })
         })
       }
