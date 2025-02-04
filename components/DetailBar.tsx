@@ -50,12 +50,12 @@ export default function DetailBar({
         events={{ hover: true, focus: false, touch: true }}
         label={
           Number.isNaN(Number(dayPercent)) ? (
-            'No Data'
+            '无数据'
           ) : (
             <>
-              <div>{dayPercent + '% at ' + new Date(dayStart * 1000).toLocaleDateString()}</div>
+              <div>{dayPercent + '% 在 ' + new Date(dayStart * 1000).toLocaleDateString()}</div>
               {dayDownTime > 0 && (
-                <div>{`Down for ${moment.preciseDiff(moment(0), moment(dayDownTime * 1000))}`}</div>
+                <div>{`不可用： ${moment.preciseDiff(moment(0), moment(dayDownTime * 1000))}`}</div>
               )}
               {/* TODO: lantency detail for each bar */}
             </>
