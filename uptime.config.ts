@@ -10,7 +10,7 @@ const pageConfig = {
 
 const workerConfig = {
   // Write KV at most every 3 minutes unless the status changed
-  kvWriteCooldownMinutes: 3,
+  kvWriteCooldownMinutes: 10,
   // Enable HTTP Basic auth for status page & API by uncommenting the line below, format `<USERNAME>:<PASSWORD>`
   // passwordProtection: 'username:password',
   // Define all your monitors here
@@ -25,7 +25,48 @@ const workerConfig = {
       method: 'GET',
       // `target` is a valid URL
       target: 'https://blog.moyanjdc.top',
-    }
+    },
+    {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'packdb',
+      // `name` is used at status page and callback message
+      name: 'PackDB',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://packdb.moyanjdc.top',
+    },
+    {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'alist',
+      // `name` is used at status page and callback message
+      name: 'AList',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://file.moyanjdc.top',
+    },
+    {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'packdb_api',
+      // `name` is used at status page and callback message
+      name: 'PackDB API',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      expectedCodes: [404]
+      // `target` is a valid URL
+      target: 'https://packdbapi.moyanjdc.top',
+    },
+  {
+      // `id` should be unique, history will be kept if the `id` remains constant
+      id: 'ntfy',
+      // `name` is used at status page and callback message
+      name: 'Ntfy通知服务',
+      // `method` should be a valid HTTP Method
+      method: 'GET',
+      // `target` is a valid URL
+      target: 'https://ntfy.moyanjdc.top',
+    },
   ],
   notification: {
     // [Optional] apprise API server URL
