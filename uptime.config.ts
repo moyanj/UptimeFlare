@@ -37,6 +37,12 @@ const workerConfig = {
       target: 'https://packdb.moyanjdc.top',
     },
     {
+      id: 'ai',
+      name: 'LLM API'
+      method: 'GET',
+      target: 'https://ai.moyanjdc.top/'
+    },
+    {
       // `id` should be unique, history will be kept if the `id` remains constant
       id: 'alist',
       // `name` is used at status page and callback message
