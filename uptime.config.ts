@@ -38,7 +38,7 @@ const workerConfig = {
     },
     {
       id: 'ai',
-      name: 'LLM API'
+      name: 'LLM API',
       method: 'GET',
       target: 'https://ai.moyanjdc.top/'
     },
