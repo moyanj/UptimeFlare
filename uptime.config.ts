@@ -28,13 +28,13 @@ const workerConfig = {
     },
     {
       // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'packdb',
+      id: 'hitokoto',
       // `name` is used at status page and callback message
-      name: 'PackDB',
+      name: '一言API',
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
-      target: 'https://packdb.moyanjdc.top',
+      target: 'https://h.moyanjdc.top',
     },
     {
       id: 'ai',
@@ -54,24 +54,23 @@ const workerConfig = {
     },
     {
       // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'packdb_api',
+      id: 'searxng',
       // `name` is used at status page and callback message
-      name: 'PackDB API',
+      name: 'SearXNG',
       // `method` should be a valid HTTP Method
       method: 'GET',
-      expectedCodes: [404],
       // `target` is a valid URL
-      target: 'https://packdbapi.moyanjdc.top',
+      target: 'https://s.moyanjdc.top',
     },
   {
       // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'ntfy',
+      id: 'wakapi',
       // `name` is used at status page and callback message
-      name: 'Ntfy通知服务',
+      name: 'Wakapi',
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
-      target: 'https://ntfy.moyanjdc.top',
+      target: 'https://wakapi.moyanjdc.top',
     },
   ],
   notification: {
@@ -100,25 +99,7 @@ const workerConfig = {
       // This callback will be called when there's a status change for any monitor
       // Write any Typescript code here
       if (!isUp) {
-        fetch('https://ntfy.moyanjdc.top', {
-          method: 'POST',
-          body: JSON.stringify({
-              "topic": "status",
-              "message": `原因：${reason}`,
-              "title": `${monitor.name}不可用！！！`,
-              "priority": 4,
-          })
-        })
       } else {
-        fetch('https://ntfy.moyanjdc.top', {
-          method: 'POST',
-          body: JSON.stringify({
-              "topic": "status",
-              "message": `${monitor.name}已可用`,
-              "priority": 3,
-          })
-        })
-      }
       // This will not follow the grace period settings and will be called immediately when the status changes
       // You need to handle the grace period manually if you want to implement it
     },
