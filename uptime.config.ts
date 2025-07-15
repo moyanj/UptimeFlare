@@ -99,9 +99,12 @@ const workerConfig = {
       // This callback will be called when there's a status change for any monitor
       // Write any Typescript code here
       if (!isUp) {
+        console.log(0);
       } else {
       // This will not follow the grace period settings and will be called immediately when the status changes
       // You need to handle the grace period manually if you want to implement it
+        console.log(1);
+      }
     },
     onIncident: async (
       env: any,
