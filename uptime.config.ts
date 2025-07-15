@@ -71,7 +71,7 @@ const workerConfig = {
       method: 'GET',
       // `target` is a valid URL
       target: 'https://wakapi.moyanjdc.top',
-    },
+    }
   ],
   notification: {
     // [Optional] apprise API server URL
